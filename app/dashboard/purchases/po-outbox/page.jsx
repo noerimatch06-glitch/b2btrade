@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
 export default async function POOutboxPage() {
-  const purchaseOrders = await prisma.purchaseorder.findMany({
+  const purchaseorders = await prisma.purchaseorder.findMany({
     orderBy: {
       createdAt: "desc",
     },
@@ -14,10 +14,10 @@ export default async function POOutboxPage() {
 
       {/* SUMMARY */}
       <div className="mb-4 flex bg-sky-500 text-white">
-        <div className="px-8 py-2 font-bold">ALL: {purchaseOrders.length}</div>
+        <div className="px-8 py-2 font-bold">ALL: {purchaseorders.length}</div>
 
         <div className="px-8 py-2 font-bold">
-          SENT: {purchaseOrders.filter((po) => po.status === "SENT").length}
+          SENT: {purchaseorders.filter((po) => po.status === "SENT").length}
         </div>
 
         <div className="px-8 py-2 font-bold">READ: 1</div>
@@ -55,7 +55,7 @@ export default async function POOutboxPage() {
           </thead>
 
           <tbody>
-            {purchaseOrders.map((po) => (
+            {purchaseorders.map((po) => (
               <tr key={po.id} className="hover:bg-yellow-50">
                 <td className="border p-2 text-center">
                   <input type="checkbox" />

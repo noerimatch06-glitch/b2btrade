@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function PurchaseOrderForm() {
+export default function PurchaseorderForm() {
   const [formData, setFormData] = useState({
     poType: "",
     documentNo: "",
