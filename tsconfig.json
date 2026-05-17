@@ -28,7 +28,16 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "app/layout.jsx",
+    "app/page.jsx",
+    "app/relationship/page.jsx",
+    "app/purchases/create-po/page.jsx",
+    "app/login/page.jsx",
+    "app/dashboard/page.jsx",
+    "components/layout/Navbar.jsx",
+    "components/layout/Sidebar.jsx",
+    "app/dashboard/po/[id]/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
