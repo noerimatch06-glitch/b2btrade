@@ -4,127 +4,111 @@ export default function CreatePOPage() {
   async function createPO(formData) {
     "use server";
 
-    const poNumber = formData.get("poNumber");
-    const sender = formData.get("sender");
-    const poRecipient = formData.get("poRecipient");
-    const deliveryLocation = formData.get("deliveryLocation");
-    const status = formData.get("status");
-    const paymentTerm = formData.get("paymentTerm");
-    const poDate = formData.get("poDate");
-    const deliveryDate = formData.get("deliveryDate");
-
-    const totalPpn = parseFloat(formData.get("totalPpn"));
-    const totalOrder = parseFloat(formData.get("totalOrder"));
-    const totalQty = parseInt(formData.get("totalQty"));
-    const totalDiscount = parseFloat(formData.get("totalDiscount"));
-
-    const expiredDate = formData.get("expiredDate");
-
     await prisma.purchaseorder.create({
       data: {
-        poNumber,
-        sender,
-        poRecipient,
-        deliveryLocation,
-        status,
-        paymentTerm,
-        poDate,
-        deliveryDate,
-        totalPpn,
-        totalOrder,
-        totalQty,
-        totalDiscount,
-        expiredDate,
+        poNumber: formData.get("poNumber"),
+        sender: formData.get("sender"),
+        poRecipient: formData.get("poRecipient"),
+        deliveryLocation: formData.get("deliveryLocation"),
+        status: formData.get("status"),
+        paymentTerm: formData.get("paymentTerm"),
+        poDate: formData.get("poDate"),
+        deliveryDate: formData.get("deliveryDate"),
+        totalPpn: parseFloat(formData.get("totalPpn") || "0"),
+        totalOrder: parseFloat(formData.get("totalOrder") || "0"),
+        totalQty: parseInt(formData.get("totalQty") || "0"),
+        totalDiscount: parseFloat(formData.get("totalDiscount") || "0"),
+        expiredDate: formData.get("expiredDate"),
       },
     });
   }
 
   return (
     <div className="p-6">
-      <h1 className="mb-6 text-2xl font-bold">Create Purchase Order</h1>
+      <h1 className="text-2xl font-bold mb-6">Create Purchase Order</h1>
 
       <form action={createPO} className="space-y-4">
         <input
           name="poNumber"
           placeholder="PO Number"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="sender"
           placeholder="Sender"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="poRecipient"
           placeholder="PO Recipient"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="deliveryLocation"
           placeholder="Delivery Location"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="status"
           placeholder="Status"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="paymentTerm"
           placeholder="Payment Term"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="poDate"
           placeholder="PO Date"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="deliveryDate"
           placeholder="Delivery Date"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="totalPpn"
           placeholder="Total PPN"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="totalOrder"
           placeholder="Total Order"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="totalQty"
           placeholder="Total Qty"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="totalDiscount"
           placeholder="Total Discount"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <input
           name="expiredDate"
           placeholder="Expired Date"
-          className="w-full border p-2"
+          className="border p-2 w-full"
         />
 
         <button
           type="submit"
-          className="rounded bg-blue-600 px-4 py-2 text-white"
+          className="bg-blue-600 text-white px-4 py-2 rounded"
         >
           Save PO
         </button>
