@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
-export default function PurchaseOrderPage() {
+export default function PurchaseorderPage() {
   async function createPO(formData: FormData) {
     "use server";
 
@@ -16,7 +16,7 @@ export default function PurchaseOrderPage() {
 
     const notes = formData.get("notes") as string;
 
-    const po = await prisma.purchaseOrder.create({
+    const po = await prisma.purchaseorder.create({
       data: {
         poNumber,
         customerName,
