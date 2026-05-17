@@ -1,4 +1,4 @@
-export default function PurchaseOrderPage() {
+export default function PurchaseorderPage() {
   return (
     <div className="p-10">
       <h1 className="mb-6 text-3xl font-bold">Purchase Order</h1>
@@ -12,7 +12,7 @@ export default function PurchaseOrderPage() {
 
         <input
           type="text"
-          placeholder="Customer Name"
+          placeholder="poRecipient"
           className="w-full rounded border p-3"
         />
 

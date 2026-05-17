@@ -6,7 +6,7 @@ export default function PurchaseorderPage() {
     "use server";
 
     const poNumber = formData.get("poNumber") as string;
-    const customerName = formData.get("customerName") as string;
+    const poRecipient = formData.get("poRecipient") as string;
     const productName = formData.get("productName") as string;
 
     const qty = Number(formData.get("qty"));
@@ -19,7 +19,7 @@ export default function PurchaseorderPage() {
     const po = await prisma.purchaseorder.create({
       data: {
         poNumber,
-        customerName,
+        poRecipient,
         productName,
         qty,
         unitPrice,
@@ -47,8 +47,8 @@ export default function PurchaseorderPage() {
 
             <input
               type="text"
-              name="customerName"
-              placeholder="Customer Name"
+              name="poRecipient"
+              placeholder="poRecipient"
               className="w-full rounded border p-3"
             />
           </div>
