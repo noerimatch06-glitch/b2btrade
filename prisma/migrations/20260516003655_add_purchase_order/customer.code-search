@@ -1,0 +1,9 @@
+# Query: customer
+# ContextLines: 1
+
+1 result - 1 file
+
+prisma\migrations\20260516003655_add_purchase_order\migration.sql:
+  4      `poNumber` VARCHAR(191) NOT NULL,
+  5:     `poRecipient` VARCHAR(191) NOT NULL,
+  6      `productName` VARCHAR(191) NOT NULL,
